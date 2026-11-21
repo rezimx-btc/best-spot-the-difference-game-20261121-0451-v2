@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midnight Market — Spot the Difference</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="app">
+  <header id="hud">
+    <div class="hud-title">
+      <h1>🌙 Midnight Market</h1>
+      <p class="hud-sub">Spot the Difference · 3 scenes · 21 secrets</p>
+    </div>
+    <div class="hud-stats">
+      <div class="stat"><span class="stat-label">Scene</span><span id="sceneName" class="stat-value">Scene 1 · Noodle Stall</span></div>
+      <div class="stat"><span class="stat-label">Found</span><span id="foundCount" class="stat-value">0 / 7</span></div>
+      <div class="stat"><span class="stat-label">Total</span><span id="totalCount" class="stat-value">0 / 21</span></div>
+      <div class="stat"><span class="stat-label">Score</span><span id="scoreText" class="stat-value">0</span></div>
+      <div class="stat"><span class="stat-label">Accuracy</span><span id="accuracyText" class="stat-value">100%</span></div>
+      <div class="stat timer-stat"><span class="stat-label">Time</span><span id="timerText" class="stat-value">2:30</span></div>
+    </div>
+    <div id="timerTrack"><div id="timerBar"></div></div>
+  </header>
+
+  <main id="stage">
+    <canvas id="gameCanvas" width="1140" height="420" aria-label="Spot the difference: two near-identical pictures side by side. Click the differences on the right picture."></canvas>
+
+    <div id="titleOverlay" class="overlay">
+      <div class="overlay-card">
+        <h2 class="ov-title">🌙 Midnight Market</h2>
+        <p class="ov-body">Two pictures hang side by side in the night market — but the right one hides <b>7 differences</b>. Find them all before time runs out, then move to the next stall. Three scenes, <b>21 differences</b> in all, and the last scene is small and sneaky.</p>
+        <ul class="howto">
+          <li>🖱️ Click a difference on the <b>RIGHT</b> picture to circle it.</li>
+          <li>⌨️ Arrow keys move the crosshair, <b>Enter</b> marks the spot.</li>
+          <li>💡 <b>H</b> asks for a hint (−25 pts, 12s recharge).</li>
+          <li>🔍 <b>M</b> toggles the magnifier lens.</li>
+          <li>❌ A wrong click costs 5 seconds. A right click is worth 100 points.</li>
+        </ul>
+        <button id="startBtn" class="big-btn">Start the hunt</button>
+      </div>
+    </div>
+
+    <div id="sceneOverlay" class="overlay hidden">
+      <div class="overlay-card">
+        <h2 class="ov-title">Scene complete!</h2>
+        <p class="ov-body"></p>
+        <button id="continueBtn" class="big-btn">Continue (N)</button>
+      </div>
+    </div>
+
+    <div id="winOverlay" class="overlay hidden">
+      <div class="overlay-card win-card">
+        <h2 class="ov-title">🏆 Market Detective!</h2>
+        <p class="ov-body"></p>
+        <button id="againBtn" class="big-btn">Play again</button>
+      </div>
+    </div>
+
+    <div id="loseOverlay" class="overlay hidden">
+      <div class="overlay-card">
+        <h2 class="ov-title">⏰ Time ran out</h2>
+        <p class="ov-body"></p>
+        <button id="retryBtn" class="big-btn">Try again</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="controls">
+    <p id="message" class="hidden" role="status" aria-live="polite"></p>
+    <div class="buttons">
+      <button id="hintBtn" class="ctl-btn">💡 Hint (H)</button>
+      <button id="magBtn" class="ctl-btn">🔍 Magnifier (M)</button>
+      <button id="soundBtn" class="ctl-btn">🔊 Sound: ON</button>
+    </div>
+    <p class="keys">Click the RIGHT picture · Arrows + Enter work too · H hint · M magnifier · N next scene</p>
+  </footer>
+</div>
+<script type="module" src="./src/main.js"></script>
+</body>
+</html>
